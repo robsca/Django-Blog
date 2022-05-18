@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+
+    
+{% block content %}
+
+        <div class="articles">
+        {% for article in articles %}
+        <div class="article">
+            <a href="{%url 'post_detail' article.auto_increment_id %}"> {{article.title}} </a>
+            <p>{{ article.date_added }}</p>
+        </div>
+        {% endfor %}
+        </div>
+    
+<style>
+    .article {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        width: 10%;
+    }
+</style>
+     
+{% endblock %}

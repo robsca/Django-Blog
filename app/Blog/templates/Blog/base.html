@@ -1,0 +1,61 @@
+# a. base.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="item">
+            <a href="{%url 'all_post'%}">Blog</a>
+        </div>
+        <div class="item">
+            <a href="{% url 'login_view' %}">Login</a>
+        </div>
+        <div class="item">
+            <a href="{% url 'logout_view' %}">Logout</a>
+        </div>
+        <div class="item">
+            <a href="{% url 'register_view' %}">Register</a>
+        </div>
+
+
+    </div>
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+<style>
+    .navbar{
+        background-color: #ffffff;
+        height: 50px;
+        width: 100%;
+        z-index: 1;
+    }
+    .navbar .item{
+        float: left;
+        padding: 10px;
+        text-align: center;
+    }
+    .navbar .item a{
+        text-decoration: none;
+        color: black;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+    .navbar .item a:hover{
+        color: #0066ff;
+    }
+</style>
+</html>
